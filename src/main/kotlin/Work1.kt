@@ -31,4 +31,23 @@ fun main() {
             "Boolean true: $variableBooleanTrue\n" +
             "Boolean false: $variableBooleanFalse\n" +
             "Null: $variableNull")
+
+    print("Введите любое значение: ")
+    val anyString: String = readln()
+
+    println("isEmpty: ${anyString.isEmpty()}\n" +
+            "charAt(8): ${anyString[8]}\n" +
+            "equals(\"С новым годом\"): ${anyString == "С новым годом"}\n" +
+            "equalsIgnoreCase(\"С НОВЫМ ГОДОМ\"): ${anyString.equals("С НОВЫМ ГОДОМ", ignoreCase = true)}\n" +
+            "startsWith(\"С новым\"): ${anyString.startsWith("С новым")}\n" +
+            "startsWith(\"годом\", 8): ${anyString.startsWith("годом", 8)}\n" +
+            "endsWith(\"дом\"): ${anyString.endsWith("дом")}\n" +
+            "contains(\"м го\"): ${anyString.contains("м го")}\n" +
+            "concat(\", друзья!\"): ${anyString.plus(", друзья!")}\n" +
+            "replace(\"С новым\", \"Со старым\"): ${anyString.replace("С новым", "Со старым")}\n" +
+            "toLowerCase: ${anyString.lowercase()}"
+    )
+    val builderString = StringBuilder("Моя профессия: ")
+    builderString.append(profession)
+    println(builderString)
 }
