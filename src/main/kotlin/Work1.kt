@@ -1,8 +1,11 @@
 fun main() {
+    //Задание 1
     val name = "Кирилл"
     val surname = "Корнилов"
     val profession = "Программист"
     println("$name $surname, $profession")
+
+    //Задание 2
     val variableByte: Byte = 100
     val variableShort: Short = 30000
     val variableInt: Int = 555
@@ -32,6 +35,7 @@ fun main() {
             "Boolean false: $variableBooleanFalse\n" +
             "Null: $variableNull")
 
+    //Задание 3
     print("Введите любое значение: ")
     val anyString: String = readln()
 
