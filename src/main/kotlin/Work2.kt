@@ -3,6 +3,7 @@ fun main() {
     task1()
     task2()
     task3()
+    task4()
 }
 fun task1() {
     var inputInfo: String = ""
@@ -64,5 +65,33 @@ fun task3() {
     }
     else {
         println("Sorry, you’ve failed the test.")
+    }
+}
+fun task4() {
+    val channel = arrayOf(
+        "МатчТВ",
+        "ТНТ",
+        "СТС",
+        "Пятница",
+        "2х2"
+    )
+    while(true) {
+        val number:Int
+        print("Введите номер канала: ")
+
+        try {
+            number = readln().toInt()
+            if(number == 0) break
+
+            if(number >= 1 && number <= channel.size) {
+                println("Номер канала $number - ${channel[number-1]}")
+            }
+            else {
+                println("Такого канала нет. Введите номер канала в диапазоне от 1 до ${channel.size}")
+            }
+        }
+        catch (e: NumberFormatException){
+            println("Для ввода доступно только целое число")
+        }
     }
 }
