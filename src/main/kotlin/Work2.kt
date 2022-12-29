@@ -1,9 +1,12 @@
 import java.lang.Math.abs
+import java.util.Calendar
+
 fun main() {
     task1()
     task2()
     task3()
     task4()
+    additionalTask()
 }
 fun task1() {
     var inputInfo: String = ""
@@ -91,6 +94,99 @@ fun task4() {
             }
         }
         catch (e: NumberFormatException){
+            println("Для ввода доступно только целое число")
+        }
+    }
+}
+fun additionalTask() {
+    val list: String = ("1. Ввести имя\n" +
+            "2. Ввести фамилию\n" +
+            "3. Ввести год рождения\n" +
+            "4. Вывести информацию\n" +
+            "0. Выход\n" +
+            "Введите значение из списка: ")
+
+    var name: String? = null
+    var surname: String? = null
+    var yearOfBirth: Int? = null
+
+    fun OnlyLetters(str: String): Boolean {
+        val regex = "^[a-zA-Zа-яА-Я]+$".toRegex()
+        return  regex.matches(str)
+    }
+
+    fun setName() {
+        print("Введите имя: ")
+        val valueName = readln()
+        if (OnlyLetters(valueName)) {
+            name = valueName
+            println("Имя введено!")
+        }
+        else {
+            println("Имя не внесено. Введены некоректные данные")
+        }
+    }
+
+    fun setSurname() {
+        print("Введите фамилию: ")
+        val valueSurname = readln()
+        if (OnlyLetters(valueSurname)) {
+            surname = valueSurname
+            println("Фамилия введена!")
+        }
+        else {
+            println("Фамилия не внесена. Введены некоректные данные")
+        }
+    }
+
+    fun setYearBirth() {
+        try {
+            print("Введите год рождения: ")
+            val valueYearOfBirth = readln().toInt()
+            if (valueYearOfBirth >= 1950 && valueYearOfBirth <= Calendar.getInstance().get(Calendar.YEAR)) {
+                yearOfBirth = valueYearOfBirth
+                println("Год рождения введен!")
+            }
+            else {
+                println("Год рождения задан некорректно")
+            }
+        }
+        catch (e: NumberFormatException) {
+            println("Для ввода доступно только целое число")
+        }
+    }
+
+    fun outputUserInformation() {
+        if (name != null && surname != null && yearOfBirth != null) {
+            println("Имя: $name\n" +
+                    "Фамилия: $surname\n" +
+                    "Год рождения: $yearOfBirth")
+        }
+        else if(name == null){
+            println("Вы не указали имя")
+        }
+        else if(surname == null) {
+            println("Вы не указали фамилию")
+        }
+        else if(yearOfBirth == null) {
+            println("Вы не указали год рождения")
+        }
+    }
+
+    while (true) {
+        val choiceNumber: Int
+        print(list)
+        try {
+            choiceNumber = readln().toInt()
+            when(choiceNumber) {
+                1 -> setName()
+                2 -> setSurname()
+                3 -> setYearBirth()
+                4 -> outputUserInformation()
+                0 -> break
+            }
+        }
+        catch (e: NumberFormatException) {
             println("Для ввода доступно только целое число")
         }
     }
