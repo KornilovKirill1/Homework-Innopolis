@@ -2,6 +2,7 @@ import java.lang.Math.abs
 fun main() {
     task1()
     task2()
+    task3()
 }
 fun task1() {
     var inputInfo: String = ""
@@ -38,5 +39,30 @@ fun task2() {
     }
     else {
         println("Сумма от $number до 0 равна $sum")
+    }
+}
+fun task3() {
+    var score:Int
+    while(true) {
+        try {
+            print("Введите свой балл: ")
+            score = readln().toInt()
+            if(score > 100 || score < 0) {
+                println("Введено некорректное значение")
+            }
+            else {
+                break
+            }
+        }
+        catch (e: NumberFormatException) {
+            println("Для ввода доступно только целое число")
+        }
+    }
+
+    if(score >= 70) {
+        println("Congrats! You’ve passed the test!")
+    }
+    else {
+        println("Sorry, you’ve failed the test.")
     }
 }
